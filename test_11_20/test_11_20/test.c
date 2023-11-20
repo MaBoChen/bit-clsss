@@ -179,18 +179,19 @@
 //}
 
 
-
-int a = 100;
-
-int main()
-{
-	{
-		int a = 10;
-		printf("%d\n", a);//10
-	}
-
-	return 0;
-}
+//
+//int a = 100;
+//
+//int main()
+//{
+//	{
+//		int a = 10;
+//		printf("%d\n", a);//10
+//	}
+//
+//	return 0;
+//}
+//
 
 
 
