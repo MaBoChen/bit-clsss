@@ -1,0 +1,35 @@
+# Project: test_arr
+# Makefile created by Red Panda C++ 2.25.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = test_arr_private.res
+OBJ      = test.o $(RES)
+LINKOBJ  = test.o test_arr_private.res
+CLEANOBJ  =  test.o  test_arr_private.res test_arr.exe
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = test_arr.exe
+CXXFLAGS = $(CXXINCS)  -g3 -pipe -Wall -D__DEBUG__
+CFLAGS   = $(INCS)  -g3 -pipe -Wall -D__DEBUG__
+RM       = del /q /f
+WINDRESFLAGS  = 
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	-$(RM) $(CLEANOBJ) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+test.o: test.c
+	$(CC) -c test.c -o test.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+test_arr_private.res: test_arr_private.rc 
+	$(WINDRES) -i test_arr_private.rc --input-format=rc -o test_arr_private.res -O coff $(WINDRESFLAGS) 
+
